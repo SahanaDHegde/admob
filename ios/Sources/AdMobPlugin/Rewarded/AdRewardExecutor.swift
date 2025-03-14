@@ -83,4 +83,9 @@ class AdRewardExecutor: NSObject, GADFullScreenContentDelegate {
         NSLog("RewardFullScreenDelegate Ad did dismiss full screen content.")
         self.plugin?.notifyListeners(RewardAdPluginEvents.Dismissed.rawValue, data: [:])
     }
+    
+    func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {
+        NSLog("RewardFullScreenDelegate Ad did clicked")
+        plugin?.notifyListeners(RewardAdPluginEvents.RewardedAdClicked.rawValue, data: [:])
+    }
 }
